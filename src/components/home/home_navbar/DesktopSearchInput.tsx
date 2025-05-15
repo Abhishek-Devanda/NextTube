@@ -3,7 +3,7 @@ import { useState } from "react";
 import { SearchIcon } from "lucide-react"
 import { useRouter } from "next/navigation";
 
-export const SearchInput = () => {
+export const DesktopSearchInput = () => {
     const router = useRouter()
     const [query, setQuery] = useState('')
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

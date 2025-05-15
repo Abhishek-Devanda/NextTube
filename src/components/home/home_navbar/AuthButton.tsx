@@ -3,20 +3,11 @@ import { Button } from "../../ui/button"
 import { SignedIn, SignedOut, SignInButton, UserButton, } from "@clerk/nextjs"
 
 export const AuthButton = () => {
-    const userProfileProps = {
-        additionalOAuthScopes: {
-            google: [
-                "https://www.googleapis.com/auth/youtube.readonly",
-                "https://www.googleapis.com/auth/youtube",
-                "https://www.googleapis.com/auth/youtube.force-ssl"
-            ]
-        }
-    }
 
     return (
         <>
             <SignedIn>
-                <UserButton userProfileProps={userProfileProps}/>
+                <UserButton />
             </SignedIn>
             <SignedOut>
                 <SignInButton mode="modal">

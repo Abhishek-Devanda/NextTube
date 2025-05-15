@@ -30,6 +30,36 @@ NEXT_PUBLIC_DOMAIN_URL="https://localhost:3000"
 YOUTUBE_API_KEY=""
 ```
 
+### Configure Google OAuth with Clerk
+
+To enable users to sign in with Google and grant your application access to their YouTube data, you'll need to configure a custom Google OAuth provider in your Clerk dashboard.
+
+1.  **Create Google Cloud Project & OAuth Credentials:**
+    *   Go to the [Google Cloud Console](https://console.cloud.google.com/).
+    *   Create a new project or select an existing one.
+    *   Navigate to "APIs & Services" > "Credentials".
+    *   Click "Create Credentials" > "OAuth client ID".
+    *   Choose "Web application" as the application type.
+    *   Add an "Authorized redirect URI". You can find this URI in your Clerk dashboard under "User & Authentication" > "Social Connections" > "Google". It will look something like `https://clerk.YOUR_DOMAIN.com/oauth_callback` or `https://YOUR_CLERK_FRONTEND_API_HOSTNAME/v1/oauth_callback`.
+    *   Save the Client ID and Client Secret.
+
+2.  **Enable YouTube Data API v3:**
+    *   In the Google Cloud Console, navigate to "APIs & Services" > "Library".
+    *   Search for "YouTube Data API v3" and enable it for your project.
+
+3.  **Configure Clerk:**
+    *   Go to your [Clerk Dashboard](https://dashboard.clerk.com/).
+    *   Navigate to "User & Authentication" > "Social Connections".
+    *   Enable the Google social connection if it's not already.
+    *   If you need to customize scopes, you might need to set it up as a "Custom OAuth provider" or ensure the default Google provider allows scope customization.
+    *   Enter the Client ID and Client Secret obtained from the Google Cloud Console.
+    *   Add the following scopes:
+        *   `https://www.googleapis.com/auth/youtube.force-ssl`
+        *   `https://www.googleapis.com/auth/youtube`
+        *   `https://www.googleapis.com/auth/youtube.readonly`
+    *   Save your configuration.
+
+
 Then, install the dependencies and run the development server:
 
 ```bash
