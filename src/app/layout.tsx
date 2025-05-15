@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "NextTube",
-  description: "Created by Abhishek",
+  description: "YouTube clone created by Abhishek Devanda",
 };
 
 export default function RootLayout({
