@@ -1,6 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  
+};
+
+export default nextConfig;
+
+module.exports = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -24,16 +36,5 @@ const nextConfig: NextConfig = {
         hostname: 'yt3.googleusercontent.com',
       },
     ],
-  },
-};
-
-export default nextConfig;
-
-module.exports = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
   },
 };
